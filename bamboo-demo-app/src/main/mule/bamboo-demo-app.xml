@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fd5d7dc6-0e3c-4714-beb2-880956a7a095" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="bamboo-demo-appFlow" doc:id="8fe44fe7-e7eb-448c-9331-4bc85c803d98" >
+		<http:listener doc:name="Listener" doc:id="57d56f08-9144-4855-b526-383aa0136bb7" config-ref="HTTP_Listener_config" path="/bamboo"/>
+		<set-payload value='#["Setting up Jenkins to build and deploy mulesoft application on Cloudhub"]' doc:name="Set Payload" doc:id="46af54a4-7a1c-450a-8f79-233f7d9caf6c" />
+	</flow>
+</mule>
